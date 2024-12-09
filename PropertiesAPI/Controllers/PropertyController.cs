@@ -21,6 +21,7 @@ namespace PropertiesAPI.Controllers
         [HttpGet(Name = "GetProperties")]
         public async Task<IActionResult> Get()
         {
+            var result=_repo.GetAllProperties();
 
             return Ok("property returned");
         }
