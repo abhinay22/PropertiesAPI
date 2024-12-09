@@ -40,5 +40,19 @@ namespace Property.Unit.Test
             await controller.Get();
             mockRepository.Verify(x=>x.GetAllProperties(), Times.Once);
         }
+
+        [Fact]
+        public async void Get_OnSuccess_Returns_List_Of_Properties()
+        {
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
+            var controller = new PropertyController(mockRepository.Object);
+
+            var resultTask = (OkObjectResult)await controller.Get();
+            resultTask.Should().BeOfType<OkResult>();
+            resultTask.Value.Should().BeOfType<List<PropertiesAPI.DTO.PropertyDTO>>();
+
+
+        }
     }
 }

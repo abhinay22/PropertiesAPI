@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Repository;
+using PropertiesAPI.DTO;
 
 namespace PropertiesAPI.Controllers
 {
@@ -21,9 +22,12 @@ namespace PropertiesAPI.Controllers
         [HttpGet(Name = "GetProperties")]
         public async Task<IActionResult> Get()
         {
+            //repository call
             var result=_repo.GetAllProperties();
+            List<PropertyDTO> dto = new List<PropertyDTO>();
 
-            return Ok("property returned");
+
+            return Ok('Proprties returned');
         }
     }
 }
