@@ -1,6 +1,9 @@
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 using PropertiesAPI.Controllers;
+using Repository;
+using Models;
 
 namespace Property.Unit.Test
 {
@@ -11,7 +14,9 @@ namespace Property.Unit.Test
         {
             //arrange
 
-            var controller = new PropertyController();
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
+            var controller = new PropertyController(mockRepository.Object);
 
             //act
 
@@ -23,6 +28,17 @@ namespace Property.Unit.Test
 
             resultTask.StatusCode.Should().Be(200);
 
+        }
+
+        [Fact]
+        public async void Get_Onsucess_InvokesRepositoryService()
+        {
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
+            var controller = new PropertyController(mockRepository.Object);
+
+            await controller.Get();
+            mockRepository.Verify(x=>x.GetAllProperties(), Times.Once);
         }
     }
 }

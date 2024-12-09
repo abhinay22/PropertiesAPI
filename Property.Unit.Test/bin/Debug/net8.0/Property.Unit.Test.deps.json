@@ -10,6 +10,7 @@
         "dependencies": {
           "FluentAssertions": "7.0.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
+          "Models": "1.0.0",
           "Moq": "4.20.72",
           "PropertiesAPI": "1.0.0",
           "coverlet.collector": "6.0.0",
@@ -1205,12 +1206,32 @@
         }
       },
       "xunit.runner.visualstudio/2.5.3": {},
+      "Models/1.0.0": {
+        "runtime": {
+          "Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "PropertiesAPI/1.0.0": {
         "dependencies": {
+          "Repository": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
           "PropertiesAPI.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "Repository.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1966,7 +1987,17 @@
       "path": "xunit.runner.visualstudio/2.5.3",
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "PropertiesAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
