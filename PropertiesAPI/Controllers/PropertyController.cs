@@ -19,7 +19,7 @@ namespace PropertiesAPI.Controllers
         public async Task<IActionResult> Get()
         {
 
-            return null;
+            return Ok("property returned");
         }
     }
 }

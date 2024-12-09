@@ -21,7 +21,7 @@ namespace Property.Unit.Test
             //assert
 
 
-            resultTask.StatusCode.Should().Equals(200);
+            resultTask.StatusCode.Should().Be(200);
 
         }
     }
