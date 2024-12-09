@@ -49,7 +49,7 @@ namespace Property.Unit.Test
             var controller = new PropertyController(mockRepository.Object);
 
             var resultTask = (OkObjectResult)await controller.Get();
-            resultTask.Should().BeOfType<OkResult>();
+            resultTask.Should().BeOfType<OkObjectResult>();
             resultTask.Value.Should().BeOfType<List<PropertiesAPI.DTO.PropertyDTO>>();
 
 
