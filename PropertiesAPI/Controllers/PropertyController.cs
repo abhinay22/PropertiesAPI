@@ -27,7 +27,7 @@ namespace PropertiesAPI.Controllers
             List<PropertyDTO> dto = new List<PropertyDTO>();
 
 
-            return Ok('Proprties returned');
+            return Ok("Proprties returned");
         }
     }
 }
