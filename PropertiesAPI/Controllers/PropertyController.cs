@@ -63,6 +63,12 @@ namespace PropertiesAPI.Controllers
 
 
         }
+
+        [HttpPut("id")]
+        public async Task<ActionResult> UpdatePropertyAsync(int id,[FromBody]PropertyDTO toUpdateProperty)
+        {
+           
+        }
     }
 }
 

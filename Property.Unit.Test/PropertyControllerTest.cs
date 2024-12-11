@@ -137,5 +137,22 @@ namespace Property.Unit.Test
 
         }
 
+        [Fact]
+        public async void UpdatePropertyAsync_WithExisitingProperty_ReturnsNoContent()
+        {
+            var mockRepository = new Mock<IRepository>();
+
+            Models.Property existingProperty = new Models.Property() { PropertyId = 2 };
+            mockRepository.Setup(service => service.GetProperyById(It.IsAny<int>())).ReturnsAsync(existingProperty);
+            PropertyDTO toUpdateProperty = new PropertyDTO { GroupId=999 };
+            var controller = new PropertyController(mockRepository.Object, _mapper);
+
+            var resultTask = await controller.UpdatePropertyAsync(existingProperty.id, toUpdateProperty);
+
+            var createdItem = (resultTask.Result as CreatedAtActionResult).Value as PropertyDTO;
+
+
+        }
+
     }
 }
