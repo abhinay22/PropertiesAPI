@@ -73,5 +73,28 @@ namespace Property.Unit.Test
 
 
         }
+
+
+        [Fact]
+        public async void GetPropertyById_OnSucess_Returns_200()
+        {
+            //arrange
+
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
+            var controller = new PropertyController(mockRepository.Object, _mapper);
+
+            //act
+
+            var resultTask = (OkObjectResult)await controller.Get();
+
+
+            //assert
+
+
+            resultTask.StatusCode.Should().Be(200);
+
+        }
+
     }
 }
