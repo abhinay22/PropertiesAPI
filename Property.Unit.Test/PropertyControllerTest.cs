@@ -4,11 +4,29 @@ using Moq;
 using PropertiesAPI.Controllers;
 using Repository;
 using Models;
+using AutoMapper;
+using PropertiesAPI.DTO;
+using Xunit.Sdk;
+using PropertiesAPI;
 
 namespace Property.Unit.Test
 {
     public class PropertyControllerTest
     {
+        private static IMapper _mapper;
+        public PropertyControllerTest()
+        {
+            if (_mapper == null)
+            {
+                var mappingConfig = new MapperConfiguration(cfg =>
+                {
+                    cfg.AddProfile(new AutomapperProfile());
+                });
+                IMapper mapper = mappingConfig.CreateMapper();
+                _mapper = mapper;
+            }
+        }
+
         [Fact]
         public async void Get_OnSucess_Returns_200()
         {
@@ -16,7 +34,7 @@ namespace Property.Unit.Test
 
             var mockRepository = new Mock<IRepository>();
             mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
-            var controller = new PropertyController(mockRepository.Object);
+            var controller = new PropertyController(mockRepository.Object, _mapper);
 
             //act
 
@@ -34,8 +52,9 @@ namespace Property.Unit.Test
         public async void Get_Onsucess_InvokesRepositoryService()
         {
             var mockRepository = new Mock<IRepository>();
+
             mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
-            var controller = new PropertyController(mockRepository.Object);
+            var controller = new PropertyController(mockRepository.Object, _mapper);
 
             await controller.Get();
             mockRepository.Verify(x=>x.GetAllProperties(), Times.Once);
@@ -46,7 +65,7 @@ namespace Property.Unit.Test
         {
             var mockRepository = new Mock<IRepository>();
             mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
-            var controller = new PropertyController(mockRepository.Object);
+            var controller = new PropertyController(mockRepository.Object, _mapper);
 
             var resultTask = (OkObjectResult)await controller.Get();
             resultTask.Should().BeOfType<OkObjectResult>();
