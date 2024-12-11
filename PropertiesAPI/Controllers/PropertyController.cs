@@ -42,11 +42,18 @@ namespace PropertiesAPI.Controllers
             return Ok(dto);
         }
         [HttpPost]
-        public async Task<ActionResult<PropertyDTO>> CreatePropertyAsync(CreatePropertyDTO propoerty)
+        public async Task<ActionResult<PropertyDTO>> CreatePropertyAsync([FromBody]CreatePropertyDTO propoerty)
         {
             Property prop = _mapper.Map<Property>(propoerty);
             int id=  await _repo.AddProperty(prop);
-            return CreatedAtAction(nameof(GetById), new { id = id });
+            var properyCreated = await _repo.GetProperyById(id);
+           var propDTO= _mapper.Map<PropertyDTO>(properyCreated);
+            return CreatedAtAction(nameof(GetById), new { id = id }, propDTO);
+
+        }
+        [HttpDelete("id")]
+        public async Task<ActionResult> DeletePropertyAsync(int id)
+        {
 
         }
     }

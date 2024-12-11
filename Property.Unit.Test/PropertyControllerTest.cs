@@ -113,14 +113,27 @@ namespace Property.Unit.Test
         [Fact]
         public async void CreatePropertyAsync_WithProperty_ReturnsNewProperty()
         {
-            var mockRepository = new Mock<IRepository>();
-            mockRepository.Setup(service => service.GetProperyById(1)).ReturnsAsync(new Models.Property());
+            var mockRepository = new Mock<IRepository>();  
+            
             var controller = new PropertyController(mockRepository.Object, _mapper);
-            var createPropDTO= new CreatePropertyDTO();
+            
+            var createPropDTO= new CreatePropertyDTO() {GroupId=999,Address="test Address" };
+
             var resultTask = await controller.CreatePropertyAsync(createPropDTO);
 
             var createdItem= (resultTask.Result as CreatedAtActionResult).Value as PropertyDTO;
             createPropDTO.Should().BeEquivalentTo(createdItem,options=>options.ComparingByMembers<PropertyDTO>().ExcludingMissingMembers());
+
+        }
+        [Fact]
+        public  async void DeletePropertyAsync_WithExistingProperty_ReturnsNoContent()
+        {
+            var mockRepository = new Mock<IRepository>();
+            var existingProperty= new Models.Property() { id = 1000 };
+            mockRepository.Setup(service => service.GetProperyById(It.IsAny<int>())).ReturnsAsync(existingProperty);
+            var controller = new PropertyController(mockRepository.Object, _mapper);
+            var result=await controller.DeletePropertyAsync(existingProperty.id);
+            result.Should().BeOfType<NoContentResult>();
 
         }
 
