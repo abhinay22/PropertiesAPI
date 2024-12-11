@@ -33,10 +33,12 @@ namespace PropertiesAPI.Controllers
             return Ok(dto);
         }
 
-        [HttpGet]
+        [HttpGet("id")]
         public async Task<OkObjectResult> GetById(int id)
         {
-            PropertyDTO dto=new PropertyDTO();
+            //repositroy call
+             Property result= await _repo.GetProperyById(id);
+            PropertyDTO dto= _mapper.Map<Property,PropertyDTO>(result);
             return Ok(dto);
         }
     }
