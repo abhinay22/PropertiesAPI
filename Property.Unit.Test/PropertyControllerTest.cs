@@ -129,7 +129,7 @@ namespace Property.Unit.Test
         public  async void DeletePropertyAsync_WithExistingProperty_ReturnsNoContent()
         {
             var mockRepository = new Mock<IRepository>();
-            var existingProperty= new Models.Property() { id = 1000 };
+            var existingProperty= new Models.Property() { PropertyId = 2 };
             mockRepository.Setup(service => service.GetProperyById(It.IsAny<int>())).ReturnsAsync(existingProperty);
             var controller = new PropertyController(mockRepository.Object, _mapper);
             var result=await controller.DeletePropertyAsync(existingProperty.id);
