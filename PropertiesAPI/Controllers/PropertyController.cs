@@ -44,8 +44,9 @@ namespace PropertiesAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<PropertyDTO>> CreatePropertyAsync(CreatePropertyDTO propoerty)
         {
-
-
+            Property prop = _mapper.Map<Property>(propoerty);
+            int id=  await _repo.AddProperty(prop);
+            return CreatedAtAction(nameof(GetById), new { id = id });
 
         }
     }
