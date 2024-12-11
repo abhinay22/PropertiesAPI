@@ -1,0 +1,92 @@
+[
+  {
+    "ContainingType": "PropertiesAPI.Controllers.PropertyController",
+    "Method": "Get",
+    "RelativePath": "Property",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "GetProperties"
+  },
+  {
+    "ContainingType": "PropertiesAPI.Controllers.PropertyController",
+    "Method": "CreatePropertyAsync",
+    "RelativePath": "Property",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propoerty",
+        "Type": "PropertiesAPI.DTO.CreatePropertyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PropertiesAPI.DTO.PropertyDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PropertiesAPI.Controllers.PropertyController",
+    "Method": "GetById",
+    "RelativePath": "Property/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PropertiesAPI.Controllers.PropertyController",
+    "Method": "DeletePropertyAsync",
+    "RelativePath": "Property/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PropertiesAPI.Controllers.PropertyController",
+    "Method": "UpdatePropertyAsync",
+    "RelativePath": "Property/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "toUpdateProperty",
+        "Type": "PropertiesAPI.DTO.PropertyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
