@@ -17,9 +17,9 @@
         public DateTime ActivatedOn { get; set; }
         public bool IsNew { get; set; }
         public bool IsSaleAgreed { get; set; }
-        public string GroupLogoBgColor { get; set; }
-        public string GroupPremiumHeadTextColour { get; set; }
-        public string GroupLogoUrl { get; set; }
+        public string? GroupLogoBgColor { get; set; }
+        public string? GroupPremiumHeadTextColour { get; set; }
+        public string? GroupLogoUrl { get; set; }
         public string? GroupPremiumLogoUrl { get; set; }
         public string? GroupPremiumJointLogoUrl { get; set; }
         public string? GroupRectangularLogoUrl { get; set; }
@@ -42,7 +42,7 @@
         public string PriceAsString { get; set; }
         public BrochureMap BrochureMap { get; set; }
         public int id { get; set; }
-        public int SizeStringMeters { get; set; }
+        public double? SizeStringMeters { get; set; }
         public bool PriceChangeIsIncrease { get; set; }
         public string DisplayAddress { get; set; }
         public int PropertyClassId { get; set; }

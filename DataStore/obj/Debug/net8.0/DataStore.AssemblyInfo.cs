@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataStore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc17ee49bf51534f55a47dabacb8750633b6f2cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b475043f766ad712acb4c3439b02447dac8b48ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataStore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataStore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -15,8 +15,8 @@ namespace DataStore.Entities
         public int Id { get; set; }
         public int NegotiatorId { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string WebSite { get; set; }
+        public string? Email { get; set; }
+        public string? WebSite { get; set; }
         public virtual Property property { get; set; }
 
         [ForeignKey("PropertyId")]

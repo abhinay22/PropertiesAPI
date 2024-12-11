@@ -50,7 +50,7 @@ namespace DataStore.Entities
         public BrochureMap BrochureMap { get; set; }
 
         public int id { get; set; }
-        public int? SizeStringMeters { get; set; }
+        public double? SizeStringMeters { get; set; }
         public bool PriceChangeIsIncrease { get; set; }
         public string DisplayAddress { get; set; }
         public int? PropertyClassId { get; set; }

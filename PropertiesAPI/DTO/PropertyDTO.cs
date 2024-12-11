@@ -9,26 +9,26 @@ namespace PropertiesAPI.DTO
         public CustomData CustomData { get; set; }
         public DateTime RefreshedOn { get; set; }
         public Location Location { get; set; }
-        public string Address { get; set; }
-        public string GroupPhoneNumber { get; set; }
-        public string GroupEmail { get; set; }
-        public string GroupName { get; set; }
-        public string GroupAddress { get; set; }
-        public string GroupUrlSlugIdentifier { get; set; }
+        public string? Address { get; set; }
+        public string? GroupPhoneNumber { get; set; }
+        public string? GroupEmail { get; set; }
+        public string? GroupName { get; set; }
+        public string? GroupAddress { get; set; }
+        public string? GroupUrlSlugIdentifier { get; set; }
         public Negotiator? Negotiator { get; set; }
         public DateTime CreatedOnDate { get; set; }
         public DateTime ActivatedOn { get; set; }
         public bool IsNew { get; set; }
         public bool IsSaleAgreed { get; set; }
         public string GroupLogoBgColor { get; set; }
-        public string GroupPremiumHeadTextColour { get; set; }
-        public string GroupLogoUrl { get; set; }
-        public string GroupPremiumLogoUrl { get; set; }
-        public string GroupPremiumJointLogoUrl { get; set; }
-        public string GroupRectangularLogoUrl { get; set; }
-        public string JointGroupRectangularLogoUrl { get; set; }
-        public string JointGroupPremiumJointLogo { get; set; }
-        public string GroupUrl { get; set; }
+        public string? GroupPremiumHeadTextColour { get; set; }
+        public string? GroupLogoUrl { get; set; }
+        public string? GroupPremiumLogoUrl { get; set; }
+        public string? GroupPremiumJointLogoUrl { get; set; }
+        public string? GroupRectangularLogoUrl { get; set; }
+        public string? JointGroupRectangularLogoUrl { get; set; }
+        public string? JointGroupPremiumJointLogo { get; set; }
+        public string? GroupUrl { get; set; }
         public bool IsPremiumAd { get; set; }
         public bool IsBuildToRent { get; set; }
         public bool IsBuildToRentDevelopment { get; set; }
@@ -41,11 +41,11 @@ namespace PropertiesAPI.DTO
         public bool HasWebP { get; set; }
         public bool IsMappedAccurately { get; set; }
         public bool IsTopSpot { get; set; }
-        public string BedsString { get; set; }
-        public string PriceAsString { get; set; }
+        public string? BedsString { get; set; }
+        public string? PriceAsString { get; set; }
         public BrochureMap BrochureMap { get; set; }
         public int id { get; set; }
-        public int SizeStringMeters { get; set; }
+        public double? SizeStringMeters { get; set; }
         public bool PriceChangeIsIncrease { get; set; }
         public string DisplayAddress { get; set; }
         public int PropertyClassId { get; set; }

@@ -10,7 +10,7 @@ namespace PropertiesAPI.DTO
     {
         public int NegotiatorId { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string WebSite { get; set; }
+        public string? Email { get; set; }
+        public string? WebSite { get; set; }
     }
 }

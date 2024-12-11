@@ -1,0 +1,763 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PropertiesAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Property": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "operationId": "GetProperties",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Property"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Property/id": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BrochureMap": {
+        "type": "object",
+        "properties": {
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePropertyDTO": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CustomData": {
+            "$ref": "#/components/schemas/CustomData"
+          },
+          "RefreshedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPhoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupUrlSlugIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "Negotiator": {
+            "$ref": "#/components/schemas/Negotiator"
+          },
+          "CreatedOnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ActivatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "IsNew": {
+            "type": "boolean"
+          },
+          "IsSaleAgreed": {
+            "type": "boolean"
+          },
+          "GroupLogoBgColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumHeadTextColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumJointLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupRectangularLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "JointGroupRectangularLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "JointGroupPremiumJointLogo": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPremiumAd": {
+            "type": "boolean"
+          },
+          "IsBuildToRent": {
+            "type": "boolean"
+          },
+          "IsBuildToRentDevelopment": {
+            "type": "boolean"
+          },
+          "IsPrivateLandlord": {
+            "type": "boolean"
+          },
+          "IsBrandBooster": {
+            "type": "boolean"
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "SaleTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsFavourite": {
+            "type": "boolean"
+          },
+          "HasVideos": {
+            "type": "boolean"
+          },
+          "HasWebP": {
+            "type": "boolean"
+          },
+          "IsMappedAccurately": {
+            "type": "boolean"
+          },
+          "IsTopSpot": {
+            "type": "boolean"
+          },
+          "BedsString": {
+            "type": "string",
+            "nullable": true
+          },
+          "PriceAsString": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrochureMap": {
+            "$ref": "#/components/schemas/BrochureMap"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SizeStringMeters": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "PriceChangeIsIncrease": {
+            "type": "boolean"
+          },
+          "DisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PropertyClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyClassUrlSlug": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "BathString": {
+            "type": "string",
+            "nullable": true
+          },
+          "BerRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "EnergyRatingMediaPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "OpenViewings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "VirtualViewings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "OrderedDisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "SeoDisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrochureUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "SeoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhotoCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MainPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "MainPhotoWeb": {
+            "type": "string",
+            "nullable": true
+          },
+          "Photos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "TravelTimes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "AuctionList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "AdditionalLogoUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "RelatedPropertiesTotal": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomData": {
+        "type": "object",
+        "properties": {
+          "RelatedPropertyIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "IsMyHomePassport": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Negotiator": {
+        "type": "object",
+        "properties": {
+          "NegotiatorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "WebSite": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyDTO": {
+        "type": "object",
+        "properties": {
+          "PropertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "GroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CustomData": {
+            "$ref": "#/components/schemas/CustomData"
+          },
+          "RefreshedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPhoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupUrlSlugIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "Negotiator": {
+            "$ref": "#/components/schemas/Negotiator"
+          },
+          "CreatedOnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ActivatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "IsNew": {
+            "type": "boolean"
+          },
+          "IsSaleAgreed": {
+            "type": "boolean"
+          },
+          "GroupLogoBgColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumHeadTextColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupPremiumJointLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupRectangularLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "JointGroupRectangularLogoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "JointGroupPremiumJointLogo": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPremiumAd": {
+            "type": "boolean"
+          },
+          "IsBuildToRent": {
+            "type": "boolean"
+          },
+          "IsBuildToRentDevelopment": {
+            "type": "boolean"
+          },
+          "IsPrivateLandlord": {
+            "type": "boolean"
+          },
+          "IsBrandBooster": {
+            "type": "boolean"
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "SaleTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsFavourite": {
+            "type": "boolean"
+          },
+          "HasVideos": {
+            "type": "boolean"
+          },
+          "HasWebP": {
+            "type": "boolean"
+          },
+          "IsMappedAccurately": {
+            "type": "boolean"
+          },
+          "IsTopSpot": {
+            "type": "boolean"
+          },
+          "BedsString": {
+            "type": "string",
+            "nullable": true
+          },
+          "PriceAsString": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrochureMap": {
+            "$ref": "#/components/schemas/BrochureMap"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SizeStringMeters": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "PriceChangeIsIncrease": {
+            "type": "boolean"
+          },
+          "DisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PropertyClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyClassUrlSlug": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "BathString": {
+            "type": "string",
+            "nullable": true
+          },
+          "BerRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "EnergyRatingMediaPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "OpenViewings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "VirtualViewings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "OrderedDisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "SeoDisplayAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "BrochureUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "SeoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhotoCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MainPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "MainPhotoWeb": {
+            "type": "string",
+            "nullable": true
+          },
+          "Photos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "TravelTimes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "AuctionList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "AdditionalLogoUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "RelatedPropertiesTotal": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

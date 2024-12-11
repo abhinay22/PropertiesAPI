@@ -39,30 +39,30 @@
         public bool HasWebP { get; set; }
         public bool IsMappedAccurately { get; set; }
         public bool IsTopSpot { get; set; }
-        public string BedsString { get; set; }
-        public string PriceAsString { get; set; }
+        public string? BedsString { get; set; }
+        public string? PriceAsString { get; set; }
         public BrochureMap BrochureMap { get; set; }
         public int id { get; set; }
-        public int SizeStringMeters { get; set; }
+        public double? SizeStringMeters { get; set; }
         public bool PriceChangeIsIncrease { get; set; }
-        public string DisplayAddress { get; set; }
-        public int PropertyClassId { get; set; }
-        public string PropertyClass { get; set; }
-        public string PropertyClassUrlSlug { get; set; }
-        public string PropertyStatus { get; set; }
-        public string PropertyType { get; set; }
-        public string BathString { get; set; }
-        public string BerRating { get; set; }
-        public string EnergyRatingMediaPath { get; set; }
+        public string? DisplayAddress { get; set; }
+        public int? PropertyClassId { get; set; }
+        public string? PropertyClass { get; set; }
+        public string? PropertyClassUrlSlug { get; set; }
+        public string? PropertyStatus { get; set; }
+        public string? PropertyType { get; set; }
+        public string? BathString { get; set; }
+        public string? BerRating { get; set; }
+        public string? EnergyRatingMediaPath { get; set; }
         public List<DateTime> OpenViewings { get; set; }
         public List<DateTime> VirtualViewings { get; set; }
-        public string OrderedDisplayAddress { get; set; }
-        public string SeoDisplayAddress { get; set; }
-        public string BrochureUrl { get; set; }
-        public string SeoUrl { get; set; }
+        public string? OrderedDisplayAddress { get; set; }
+        public string? SeoDisplayAddress { get; set; }
+        public string? BrochureUrl { get; set; }
+        public string? SeoUrl { get; set; }
         public int PhotoCount { get; set; }
-        public string MainPhoto { get; set; }
-        public string MainPhotoWeb { get; set; }
+        public string? MainPhoto { get; set; }
+        public string? MainPhotoWeb { get; set; }
         public List<string> Photos { get; set; }
         public List<DateTime> TravelTimes { get; set; }
         public List<string> AuctionList { get; set; }
