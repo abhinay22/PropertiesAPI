@@ -110,6 +110,19 @@ namespace Property.Unit.Test
 
 
         }
+        [Fact]
+        public async void CreatePropertyAsync_WithProperty_ReturnsNewProperty()
+        {
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetProperyById(1)).ReturnsAsync(new Models.Property());
+            var controller = new PropertyController(mockRepository.Object, _mapper);
+            var createPropDTO= new CreatePropertyDTO();
+            var resultTask = await controller.CreatePropertyAsync(createPropDTO);
+
+            var createdItem= (resultTask.Result as CreatedAtActionResult).Value as PropertyDTO;
+            createPropDTO.Should().BeEquivalentTo(createdItem,options=>options.ComparingByMembers<PropertyDTO>().ExcludingMissingMembers());
+
+        }
 
     }
 }

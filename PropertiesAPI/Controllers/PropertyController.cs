@@ -34,12 +34,19 @@ namespace PropertiesAPI.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<OkObjectResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             //repositroy call
              Property result= await _repo.GetProperyById(id);
             PropertyDTO dto= _mapper.Map<Property,PropertyDTO>(result);
             return Ok(dto);
+        }
+        [HttpPost]
+        public async Task<ActionResult<PropertyDTO>> CreatePropertyAsync(CreatePropertyDTO propoerty)
+        {
+
+
+
         }
     }
 }
