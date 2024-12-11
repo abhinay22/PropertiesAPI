@@ -157,11 +157,12 @@ namespace Property.Unit.Test
         {
             var mockRepository = new Mock<IRepository>();
             Models.Property existingProperty = null;
+            int PropertyIdToUpdate = 100;
             mockRepository.Setup(service => service.GetProperyById(It.IsAny<int>())).ReturnsAsync(existingProperty);
             PropertyDTO toUpdateProperty = new PropertyDTO { GroupId = 999 ,PropertyId=1000 };
             var controller = new PropertyController(mockRepository.Object, _mapper);
 
-            var resultTask = await controller.UpdatePropertyAsync(existingProperty.id, toUpdateProperty);
+            var resultTask = await controller.UpdatePropertyAsync(PropertyIdToUpdate, toUpdateProperty);
 
             resultTask.Should().BeOfType<NotFoundResult>();
 
