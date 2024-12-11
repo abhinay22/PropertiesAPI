@@ -67,7 +67,10 @@ namespace PropertiesAPI.Controllers
         [HttpPut("id")]
         public async Task<ActionResult> UpdatePropertyAsync(int id,[FromBody]PropertyDTO toUpdateProperty)
         {
-           
+            var existingPropety = await _repo.GetProperyById(id);
+           Property updateProperty= _mapper.Map<Property>(toUpdateProperty);
+            await _repo.UpdateProperty(id, updateProperty);
+            return NoContent();
         }
     }
 }

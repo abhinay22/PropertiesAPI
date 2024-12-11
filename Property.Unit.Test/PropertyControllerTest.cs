@@ -149,10 +149,22 @@ namespace Property.Unit.Test
 
             var resultTask = await controller.UpdatePropertyAsync(existingProperty.id, toUpdateProperty);
 
-            var createdItem = (resultTask.Result as CreatedAtActionResult).Value as PropertyDTO;
-
+            resultTask.Should().BeOfType<NoContentResult>();
 
         }
+        [Fact]
+        public async void UpdatePropertyAsync_WithNoExisitingProperty_ReturnsNotFound()
+        {
+            var mockRepository = new Mock<IRepository>();
+            Models.Property existingProperty = null;
+            mockRepository.Setup(service => service.GetProperyById(It.IsAny<int>())).ReturnsAsync(existingProperty);
+            PropertyDTO toUpdateProperty = new PropertyDTO { GroupId = 999 ,PropertyId=1000 };
+            var controller = new PropertyController(mockRepository.Object, _mapper);
 
+            var resultTask = await controller.UpdatePropertyAsync(existingProperty.id, toUpdateProperty);
+
+            resultTask.Should().BeOfType<NotFoundResult>();
+
+        }
     }
 }
