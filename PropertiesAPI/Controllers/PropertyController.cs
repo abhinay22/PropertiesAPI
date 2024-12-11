@@ -32,5 +32,11 @@ namespace PropertiesAPI.Controllers
 
             return Ok(dto);
         }
+
+        public async Task<OkObjectResult> GetById()
+        {
+
+            return Ok("set");
+        }
     }
 }

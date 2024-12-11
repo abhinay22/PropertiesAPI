@@ -79,14 +79,14 @@ namespace Property.Unit.Test
         public async void GetPropertyById_OnSucess_Returns_200()
         {
             //arrange
-
+            int propertyId = 1;
             var mockRepository = new Mock<IRepository>();
-            mockRepository.Setup(service => service.GetAllProperties()).ReturnsAsync(new List<Models.Property>());
+            mockRepository.Setup(service => service.GetProperyById(propertyId)).ReturnsAsync(new Models.Property());
             var controller = new PropertyController(mockRepository.Object, _mapper);
 
             //act
 
-            var resultTask = (OkObjectResult)await controller.Get();
+            var resultTask = (OkObjectResult)await controller.GetById();
 
 
             //assert
