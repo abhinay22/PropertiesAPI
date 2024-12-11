@@ -33,7 +33,8 @@ namespace PropertiesAPI.Controllers
             return Ok(dto);
         }
 
-        public async Task<OkObjectResult> GetById()
+        [HttpGet]
+        public async Task<OkObjectResult> GetById(int id)
         {
 
             return Ok("set");

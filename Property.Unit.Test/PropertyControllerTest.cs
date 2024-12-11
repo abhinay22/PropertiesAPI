@@ -76,7 +76,7 @@ namespace Property.Unit.Test
 
 
         [Fact]
-        public async void GetPropertyById_OnSucess_Returns_200()
+        public async void GetById_OnSucess_Returns_200()
         {
             //arrange
             int propertyId = 1;
@@ -86,13 +86,28 @@ namespace Property.Unit.Test
 
             //act
 
-            var resultTask = (OkObjectResult)await controller.GetById();
+            var resultTask = (OkObjectResult)await controller.GetById(propertyId);
 
 
             //assert
 
 
             resultTask.StatusCode.Should().Be(200);
+
+        }
+
+        [Fact]
+        public async void GetByid_OnSuccess_Returns_Single_Property()
+        {
+            int id = 1;
+            var mockRepository = new Mock<IRepository>();
+            mockRepository.Setup(service => service.GetProperyById(1)).ReturnsAsync(new Models.Property());
+            var controller = new PropertyController(mockRepository.Object, _mapper);
+
+            var resultTask = (OkObjectResult)await controller.GetById(id);
+            resultTask.Should().BeOfType<OkObjectResult>();
+            resultTask.Value.Should().BeOfType<PropertiesAPI.DTO.PropertyDTO>();
+
 
         }
 
