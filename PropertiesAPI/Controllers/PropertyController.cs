@@ -36,8 +36,8 @@ namespace PropertiesAPI.Controllers
         [HttpGet]
         public async Task<OkObjectResult> GetById(int id)
         {
-
-            return Ok("set");
+            PropertyDTO dto=new PropertyDTO();
+            return Ok(dto);
         }
     }
 }
